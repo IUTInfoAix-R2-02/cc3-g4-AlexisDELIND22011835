@@ -5,12 +5,16 @@ import javafx.beans.property.SimpleDoubleProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
 
 public class ToileController implements Initializable {
 
@@ -20,7 +24,8 @@ public class ToileController implements Initializable {
     private static int noteMaximale = 20;
 
 
-
+    @FXML
+    HBox rootScene;
     @FXML
     public Button vider;
     @FXML
@@ -49,6 +54,10 @@ public class ToileController implements Initializable {
     Circle point5;
     @FXML
     Circle point6;
+    @FXML
+    Label erreur;
+    @FXML
+    Label typeErreur;
 
     public Double[] valueList = {0.0,0.0,0.0,0.0,0.0,0.0};
     public int[] xValues = {0,0,0,0,0,0};
@@ -60,7 +69,9 @@ public class ToileController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         tracer.setOnAction(e -> {
             tracerValeur();
-            System.out.print("test");
+        });
+        vider.setOnAction(e -> {
+            vider();
         });
     }
 
@@ -71,10 +82,15 @@ public class ToileController implements Initializable {
         valueList [3] = Double.valueOf(comp4.getText());
         valueList [4] = Double.valueOf(comp5.getText());
         valueList [5] = Double.valueOf(comp6.getText());
-        for(int index =0;index <6; index++){
+        if (verifNote()) {
+            for (int index = 0; index < valueList.length; index++) {
                 xValues[index] = getXRadarChart(valueList[index], index + 1);
                 yValues[index] = getYRadarChart(valueList[index], index + 1);
                 initDots();
+            }
+        }else{
+            erreur.setStyle("-fx-text-fill: RED");
+            typeErreur.setStyle("-fx-text-fill: RED");
         }
     }
 
@@ -97,7 +113,33 @@ public class ToileController implements Initializable {
         point6.setCenterY(yValues[5]);
         point6.setCenterX(xValues[5]);
         point6.setRadius(5);
+    }
 
+    boolean verifNote(){
+        boolean verif = true;
+        for(int index =0;index < valueList.length; index++){
+            if (valueList[index] > 20){
+                verif = false;
+            }
+        }
+        return verif;
+    }
+
+    void vider(){
+        point1.setRadius(0);
+        point2.setRadius(0);
+        point3.setRadius(0);
+        point4.setRadius(0);
+        point5.setRadius(0);
+        point6.setRadius(0);
+        erreur.setStyle("-fx-text-fill:LIGHTSKYBLUE;");
+        typeErreur.setStyle("-fx-text-fill:LIGHTSKYBLUE;");
+        comp1.setText("");
+        comp2.setText("");
+        comp3.setText("");
+        comp4.setText("");
+        comp5.setText("");
+        comp6.setText("");
     }
 
     int getXRadarChart(double value, int axe ){

@@ -12,7 +12,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<HBox fx:controller="fr.amu.iut.cc3.ToileController" id="scene" prefHeight="420.0" prefWidth="650.0" spacing="20.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" >
+<HBox fx:controller="fr.amu.iut.cc3.ToileController" id="scene" prefHeight="420.0" prefWidth="650.0" spacing="20.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" style="-fx-background-color: LIGHTSKYBLUE">
     <Pane prefHeight="400.0" prefWidth="400.0" fx:id="circle">
         <Circle centerX="200.0" centerY="200.0" radius="200.0" styleClass="toile"/>
         <Circle centerX="200.0" centerY="200.0" radius="150.0" styleClass="toile"/>
@@ -39,9 +39,9 @@
         <Circle centerX="200.0" centerY="200.0" radius="0" style="-fx-background-color: Black" fx:id="point5"/>
         <Circle centerX="200.0" centerY="200.0" radius="0" style="-fx-background-color: Black" fx:id="point6"/>
     </Pane>
-    <VBox>
-        <HBox alignment="CENTER">
-            <VBox>
+    <VBox alignment="CENTER">
+        <HBox alignment="CENTER" spacing="10">
+            <VBox alignment="CENTER" spacing="20">
                 <Label text="Compétence 1 - Réaliser"/>
                 <Label text="Compétence 2 - Optimiser"/>
                 <Label text="Compétence 3 - Administrer"/>
@@ -49,7 +49,7 @@
                 <Label text="Compétence 5 - Conduire"/>
                 <Label text="Compétence 6 - Collaborer"/>
             </VBox>
-            <VBox>
+            <VBox alignment="CENTER" spacing="10">
                 <TextField fx:id="comp1" maxWidth="80"/>
                 <TextField fx:id="comp2" maxWidth="80"/>
                 <TextField fx:id="comp3" maxWidth="80"/>
@@ -58,9 +58,13 @@
                 <TextField fx:id="comp6" maxWidth="80"/>
             </VBox>
         </HBox>
-        <HBox alignment="BOTTOM_RIGHT">
-            <Button fx:id="tracer" text="Tracer" maxWidth="80"/>
-            <Button fx:id="vider" text="Vider" maxWidth="80"/>
-        </HBox>
+        <VBox>
+            <Label text="Erreur de saisie" fx:id="erreur" style="-fx-text-fill: LIGHTSKYBLUE"/>
+            <Label text="Les valeurs doivent être entre 0 et 20" fx:id="typeErreur" style="-fx-text-fill: LIGHTSKYBLUE"/>
+            <HBox alignment="BOTTOM_RIGHT" spacing="10">
+                <Button fx:id="tracer" text="Tracer" maxWidth="80"/>
+                <Button fx:id="vider" text="Vider" maxWidth="80"/>
+            </HBox>
+        </VBox>
     </VBox>
 </HBox>
