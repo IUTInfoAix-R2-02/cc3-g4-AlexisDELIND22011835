@@ -9,16 +9,20 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 
 public class ToileApp extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("toile.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("toile.fxml")));
         primaryStage.setResizable(false);
         primaryStage.setScene( new Scene(root) );
         primaryStage.show();
+        System.out.print("a");
+
+
     }
 
 }

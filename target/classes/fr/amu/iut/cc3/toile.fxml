@@ -6,10 +6,14 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 
-
-<HBox id="scene" prefHeight="420.0" prefWidth="650.0" spacing="20.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" >
-    <Pane prefHeight="400.0" prefWidth="400.0" >
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<HBox fx:controller="fr.amu.iut.cc3.ToileController" id="scene" prefHeight="420.0" prefWidth="650.0" spacing="20.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" >
+    <Pane prefHeight="400.0" prefWidth="400.0" fx:id="circle">
         <Circle centerX="200.0" centerY="200.0" radius="200.0" styleClass="toile"/>
         <Circle centerX="200.0" centerY="200.0" radius="150.0" styleClass="toile"/>
         <Circle centerX="200.0" centerY="200.0" radius="100.0" styleClass="toile"/>
@@ -28,5 +32,35 @@
         <Text x="26" y="300" text="Compétence 5" />
         <Text x="26" y="99" text="Compétence 6" />
         <Pane fx:id="toile" styleClass="toile"/>
+        <Circle centerX="200.0" centerY="200.0" radius="0" style="-fx-background-color: Black" fx:id="point1"/>
+        <Circle centerX="200.0" centerY="200.0" radius="0" style="-fx-background-color: Black" fx:id="point2"/>
+        <Circle centerX="200.0" centerY="200.0" radius="0" style="-fx-background-color: Black" fx:id="point3"/>
+        <Circle centerX="200.0" centerY="200.0" radius="0" style="-fx-background-color: Black" fx:id="point4"/>
+        <Circle centerX="200.0" centerY="200.0" radius="0" style="-fx-background-color: Black" fx:id="point5"/>
+        <Circle centerX="200.0" centerY="200.0" radius="0" style="-fx-background-color: Black" fx:id="point6"/>
     </Pane>
+    <VBox>
+        <HBox alignment="CENTER">
+            <VBox>
+                <Label text="Compétence 1 - Réaliser"/>
+                <Label text="Compétence 2 - Optimiser"/>
+                <Label text="Compétence 3 - Administrer"/>
+                <Label text="Compétence 4 - Gérer"/>
+                <Label text="Compétence 5 - Conduire"/>
+                <Label text="Compétence 6 - Collaborer"/>
+            </VBox>
+            <VBox>
+                <TextField fx:id="comp1" maxWidth="80"/>
+                <TextField fx:id="comp2" maxWidth="80"/>
+                <TextField fx:id="comp3" maxWidth="80"/>
+                <TextField fx:id="comp4" maxWidth="80"/>
+                <TextField fx:id="comp5" maxWidth="80"/>
+                <TextField fx:id="comp6" maxWidth="80"/>
+            </VBox>
+        </HBox>
+        <HBox alignment="BOTTOM_RIGHT">
+            <Button fx:id="tracer" text="Tracer" maxWidth="80"/>
+            <Button fx:id="vider" text="Vider" maxWidth="80"/>
+        </HBox>
+    </VBox>
 </HBox>
