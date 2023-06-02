@@ -11,6 +11,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -24,8 +25,6 @@ public class ToileController implements Initializable {
     private static int noteMaximale = 20;
 
 
-    @FXML
-    HBox rootScene;
     @FXML
     public Button vider;
     @FXML
@@ -58,6 +57,18 @@ public class ToileController implements Initializable {
     Label erreur;
     @FXML
     Label typeErreur;
+    @FXML
+    Line line1;
+    @FXML
+    Line line2;
+    @FXML
+    Line line3;
+    @FXML
+    Line line4;
+    @FXML
+    Line line5;
+    @FXML
+    Line line6;
 
     public Double[] valueList = {0.0,0.0,0.0,0.0,0.0,0.0};
     public int[] xValues = {0,0,0,0,0,0};
@@ -87,6 +98,7 @@ public class ToileController implements Initializable {
                 xValues[index] = getXRadarChart(valueList[index], index + 1);
                 yValues[index] = getYRadarChart(valueList[index], index + 1);
                 initDots();
+                initLines();
             }
         }else{
             erreur.setStyle("-fx-text-fill: RED");
@@ -115,6 +127,39 @@ public class ToileController implements Initializable {
         point6.setRadius(5);
     }
 
+    void initLines(){
+        line1.setStartX(xValues[0]);
+        line1.setEndX(xValues[1]);
+        line1.setStartY(yValues[0]);
+        line1.setEndY(yValues[1]);
+
+        line2.setStartX(xValues[1]);
+        line2.setEndX(xValues[2]);
+        line2.setStartY(yValues[1]);
+        line2.setEndY(yValues[2]);
+
+        line3.setStartX(xValues[2]);
+        line3.setEndX(xValues[3]);
+        line3.setStartY(yValues[2]);
+        line3.setEndY(yValues[3]);
+
+        line4.setStartX(xValues[3]);
+        line4.setEndX(xValues[4]);
+        line4.setStartY(yValues[3]);
+        line4.setEndY(yValues[4]);
+
+        line5.setStartX(xValues[4]);
+        line5.setEndX(xValues[5]);
+        line5.setStartY(yValues[4]);
+        line5.setEndY(yValues[5]);
+
+        line6.setStartX(xValues[5]);
+        line6.setEndX(xValues[0]);
+        line6.setStartY(yValues[5]);
+        line6.setEndY(yValues[0]);
+        }
+
+
     boolean verifNote(){
         boolean verif = true;
         for(int index =0;index < valueList.length; index++){
@@ -132,8 +177,8 @@ public class ToileController implements Initializable {
         point4.setRadius(0);
         point5.setRadius(0);
         point6.setRadius(0);
-        erreur.setStyle("-fx-text-fill:LIGHTSKYBLUE;");
-        typeErreur.setStyle("-fx-text-fill:LIGHTSKYBLUE;");
+        erreur.setStyle("-fx-text-fill: rgb(188,208,251);");
+        typeErreur.setStyle("-fx-text-fill: rgb(188,208,251);");
         comp1.setText("");
         comp2.setText("");
         comp3.setText("");

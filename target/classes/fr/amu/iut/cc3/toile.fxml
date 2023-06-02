@@ -12,7 +12,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<HBox fx:controller="fr.amu.iut.cc3.ToileController" id="scene" prefHeight="420.0" prefWidth="650.0" spacing="20.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" style="-fx-background-color: LIGHTSKYBLUE">
+<HBox fx:controller="fr.amu.iut.cc3.ToileController" id="scene" prefHeight="420.0" prefWidth="650.0" spacing="20.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" style="-fx-background-color: rgb(188,208,251)">
     <Pane prefHeight="400.0" prefWidth="400.0" fx:id="circle">
         <Circle centerX="200.0" centerY="200.0" radius="200.0" styleClass="toile"/>
         <Circle centerX="200.0" centerY="200.0" radius="150.0" styleClass="toile"/>
@@ -38,6 +38,12 @@
         <Circle centerX="200.0" centerY="200.0" radius="0" style="-fx-background-color: Black" fx:id="point4"/>
         <Circle centerX="200.0" centerY="200.0" radius="0" style="-fx-background-color: Black" fx:id="point5"/>
         <Circle centerX="200.0" centerY="200.0" radius="0" style="-fx-background-color: Black" fx:id="point6"/>
+        <Line fx:id="line1" style="-fx-stroke: BLACK"/>
+        <Line fx:id="line2" style="-fx-stroke: BLACK"/>
+        <Line fx:id="line3" style="-fx-stroke: BLACK"/>
+        <Line fx:id="line4" style="-fx-stroke: BLACK"/>
+        <Line fx:id="line5" style="-fx-stroke: BLACK"/>
+        <Line fx:id="line6" style="-fx-stroke: BLACK"/>
     </Pane>
     <VBox alignment="CENTER">
         <HBox alignment="CENTER" spacing="10">
@@ -59,8 +65,8 @@
             </VBox>
         </HBox>
         <VBox>
-            <Label text="Erreur de saisie" fx:id="erreur" style="-fx-text-fill: LIGHTSKYBLUE"/>
-            <Label text="Les valeurs doivent être entre 0 et 20" fx:id="typeErreur" style="-fx-text-fill: LIGHTSKYBLUE"/>
+            <Label text="Erreur de saisie" fx:id="erreur" style="-fx-text-fill: rgb(188,208,251) "/>
+            <Label text="Les valeurs doivent être entre 0 et 20" fx:id="typeErreur" style="-fx-text-fill: rgb(188,208,251)"/>
             <HBox alignment="BOTTOM_RIGHT" spacing="10">
                 <Button fx:id="tracer" text="Tracer" maxWidth="80"/>
                 <Button fx:id="vider" text="Vider" maxWidth="80"/>
