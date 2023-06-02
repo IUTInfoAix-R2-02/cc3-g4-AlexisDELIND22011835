@@ -2,6 +2,8 @@ package fr.amu.iut.cc3;
 
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -15,6 +17,8 @@ import javafx.scene.shape.Line;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import static javafx.beans.binding.Bindings.when;
 
 
 public class ToileController implements Initializable {
@@ -74,7 +78,7 @@ public class ToileController implements Initializable {
     public int[] xValues = {0,0,0,0,0,0};
     public int[] yValues = {0,0,0,0,0,0};
 
-    //DoubleProperty note = new SimpleDoubleProperty();
+    StringProperty color = new SimpleStringProperty("BLACK");
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -84,6 +88,7 @@ public class ToileController implements Initializable {
         vider.setOnAction(e -> {
             vider();
         });
+
     }
 
     void tracerValeur(){
@@ -157,7 +162,13 @@ public class ToileController implements Initializable {
         line6.setEndX(xValues[0]);
         line6.setStartY(yValues[5]);
         line6.setEndY(yValues[0]);
-        }
+        line1.setStyle("-fx-stroke: BLACK;");
+        line2.setStyle("-fx-stroke: BLACK;");
+        line3.setStyle("-fx-stroke: BLACK;");
+        line4.setStyle("-fx-stroke: BLACK;");
+        line5.setStyle("-fx-stroke: BLACK;");
+        line6.setStyle("-fx-stroke: BLACK;");
+    }
 
 
     boolean verifNote(){
@@ -185,6 +196,12 @@ public class ToileController implements Initializable {
         comp4.setText("");
         comp5.setText("");
         comp6.setText("");
+        line1.setStyle("-fx-stroke: TRANSPARENT;");
+        line2.setStyle("-fx-stroke: TRANSPARENT;");
+        line3.setStyle("-fx-stroke: TRANSPARENT;");
+        line4.setStyle("-fx-stroke: TRANSPARENT;");
+        line5.setStyle("-fx-stroke: TRANSPARENT;");
+        line6.setStyle("-fx-stroke: TRANSPARENT;");
     }
 
     int getXRadarChart(double value, int axe ){
