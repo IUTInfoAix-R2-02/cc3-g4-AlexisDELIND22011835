@@ -20,6 +20,7 @@ public class ToileApp extends Application {
         primaryStage.setResizable(false);
         primaryStage.setScene( new Scene(root) );
         primaryStage.show();
+        primaryStage.setTitle("Résultats aux différentes compétences du BUT");
         System.out.print("a");
 
 

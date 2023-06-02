@@ -73,15 +73,13 @@ public class ToileController implements Initializable {
     Line line5;
     @FXML
     Line line6;
-
     public Double[] valueList = {0.0,0.0,0.0,0.0,0.0,0.0};
     public int[] xValues = {0,0,0,0,0,0};
     public int[] yValues = {0,0,0,0,0,0};
 
-    StringProperty color = new SimpleStringProperty("BLACK");
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         tracer.setOnAction(e -> {
             tracerValeur();
         });
@@ -213,5 +211,4 @@ public class ToileController implements Initializable {
         return (int) (rayonCercleExterieur - Math.sin(Math.toRadians(angleDepart - (axe-1)  * angleEnDegre)) * rayonCercleExterieur
                 *  (value / noteMaximale));
     }
-
 }
